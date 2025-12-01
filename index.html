@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Differential Equations Explorer</title>
-  <script src="https://cdn.jsdelivr.net/npm/mathjs@11/dist/math.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <style>
     body { font-family: Arial, sans-serif; margin: 30px; }
     .container { max-width: 700px; margin: auto; }
@@ -18,7 +16,8 @@
     <h1>Differential Equations Explorer</h1>
     <form id="odeForm" onsubmit="return false;">
       <label>Enter ODE system (e.g., dx/dt = x-y, dy/dt = x+y):</label>
-      <textarea id="systemInput" rows="2">dx/dt = x - y\ndy/dt = x + y</textarea>
+      <textarea id="systemInput" rows="2">dx/dt = x - y
+dy/dt = x + y</textarea>
       <label>Initial conditions (e.g., x=1, y=0):</label>
       <input id="initInput" value="x=1, y=0">
       <label>Time span (e.g., 0, 10):</label>
@@ -29,7 +28,7 @@
     <div id="plot"></div>
     <div id="phasePortrait"></div>
   </div>
-  <!-- Always load math.js and plotly BEFORE main.js! -->
+  <!-- LOAD LIBRARIES BEFORE main.js! -->
   <script src="https://cdn.jsdelivr.net/npm/mathjs@11/dist/math.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="main.js"></script>
