@@ -6,17 +6,18 @@
   <script src="https://cdn.jsdelivr.net/npm/mathjs@11/dist/math.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <style>
-    body { font-family: Arial; margin: 30px; }
+    body { font-family: Arial, sans-serif; margin: 30px; }
     .container { max-width: 700px; margin: auto; }
     input, textarea { width: 100%; margin-bottom: 10px; }
-    #plot { width: 100%; height: 400px; }
+    .error { color: red; }
+    #plot, #phasePortrait { width: 100%; height: 400px; }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Differential Equations Explorer</h1>
-    <form id="odeForm">
-      <label>Enter ODE (e.g., dx/dt = x-y, dy/dt = x+y):</label>
+    <form id="odeForm" onsubmit="return false;">
+      <label>Enter ODE system (e.g., dx/dt = x-y, dy/dt = x+y):</label>
       <textarea id="systemInput" rows="2">dx/dt = x - y\ndy/dt = x + y</textarea>
       <label>Initial conditions (e.g., x=1, y=0):</label>
       <input id="initInput" value="x=1, y=0">
@@ -24,6 +25,7 @@
       <input id="timeSpan" value="0, 10">
       <button type="button" onclick="solveAndPlot()">Solve & Plot</button>
     </form>
+    <div id="error" class="error"></div>
     <div id="plot"></div>
     <div id="phasePortrait"></div>
   </div>
